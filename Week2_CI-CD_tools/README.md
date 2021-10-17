@@ -11,7 +11,7 @@ Also I add a network security group to limit the access to the servers from the 
 
 ![netw_sec_group](https://user-images.githubusercontent.com/86925275/137642450-9ed656f7-38ae-4387-a4f2-d5c125ac1ba5.png)
 
-1.3 Install openjdk-8-jdk, Git and Jenkins
+1.3 Install openjdk-8-jdk, Git 
 
         #installing Java 8 from PPA repository
         sudo add-apt-repository ppa:webupd8team/java
@@ -19,7 +19,9 @@ Also I add a network security group to limit the access to the servers from the 
 
         #install Java 1.8 and Git
         sudo apt-get install openjdk-8-jre git -y
-        
+  
+  1.4  Install Jenkins and enable autostart on startup 
+  
         #install Jenkins
         #add the repository key to the system
         wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
@@ -38,5 +40,22 @@ Also I add a network security group to limit the access to the servers from the 
 
 ![jenkins-status](https://user-images.githubusercontent.com/86925275/137643383-414e6426-e971-45cf-9e5a-f100c93559bb.png)
 
-   
+ 1.5 Setup cumtom port 8081 for Jenkins    
+ 
+ We need to edit configuration file with command: sudo vim /etc/default/jenkins and to change parameter  -> HTTP_PORT = 8081 instead defaul 8080
+ 
+ ![custom-port8081](https://user-images.githubusercontent.com/86925275/137643752-e3033582-e961-455f-94a6-8531f39aa2b0.png)
+ 
+ In order for the changes to take effect we need to restart Jenkins servise by using command:
+         
+         sudo service jenkins restart
+ After that steps are done, we are able to access to login page with custom port 8081
+ 
+ ![login-screen](https://user-images.githubusercontent.com/86925275/137643898-2ba2f34c-c156-4e69-b851-dea62821f9c9.png)
+
+ 
+ 
+
+ 
+ 
         
