@@ -98,5 +98,15 @@ Manage Jenkins -> Security (Manage users) -> Create user
         #add public key to authorized_keys file 
         cat id_rsa.pub > ~/.ssh/authorized_keys
 
+2.3 Connect agent to master node
 
+Manage Jenkins -> System Configuration (Manage nodes and clouds) -> New node
+
+I add Agent node and provide info about: node name, labels, remote root directory, host IP address and credentials (private key that we generate at previous step)
+
+![slave1](https://user-images.githubusercontent.com/86925275/137645762-f4f03de0-af4d-4251-92f9-fd02b970ae7f.png)
+
+![slave2](https://user-images.githubusercontent.com/86925275/137645768-65b85ffb-646a-421e-b02f-0cecb7f61dda.png)
+
+Agent node was added successfully. 
 
