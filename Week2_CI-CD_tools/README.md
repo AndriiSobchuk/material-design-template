@@ -194,3 +194,14 @@ Name NodeJS and add required npm packages
 
 5.2 Configuring Jenkins
 
+![web-02](https://user-images.githubusercontent.com/86925275/137647404-35124d18-5a55-4d71-a6d1-d5c7b1161528.png)
+
+![web-03](https://user-images.githubusercontent.com/86925275/137647407-3d87611d-7c9c-4ee1-9457-2436ccca033e.png)
+
+5.3 Result is successful! Webhook works.
+
+![web-06](https://user-images.githubusercontent.com/86925275/137647502-1382a656-7814-4ed6-a54f-916c47b13fc8.png)
+
+![web-04](https://user-images.githubusercontent.com/86925275/137647448-fa35e13e-2d21-47c7-b92a-871028fe8b2c.png)
+
+
