@@ -30,8 +30,13 @@ Also I add a network security group to limit the access to the servers from the 
         
         #start Jenkins
         sudo systemctl start jenkins
+        
+        #enable autostart on startup
+        sudo systemctl enable jenkins 
+        #verify Jenkins status
         sudo systemctl status jenkins
 
-        
-        
+![jenkins-status](https://user-images.githubusercontent.com/86925275/137643383-414e6426-e971-45cf-9e5a-f100c93559bb.png)
+
+   
         
