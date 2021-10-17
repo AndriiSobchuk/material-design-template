@@ -206,5 +206,12 @@ Name NodeJS and add required npm packages
 
 ![web-08](https://user-images.githubusercontent.com/86925275/137647560-09ccb97a-3c0c-43e9-a83c-e9e21b023560.png)
 
+**OPTIONAL TASKS** 
+
+**Task 1.**  USE SCRIPTED PIPELINE INSTEAD OF DECLARATIVE
+
+**Task 2.**  SPIN UP VM WITH INSTALLED ARTIFACTORY
+
+**Task 3.**  ADD NEW STAGE FOR PUBLISHING ARTIFACTS INTO ARTIFACTORY
 
 
