@@ -186,4 +186,11 @@ Name NodeJS and add required npm packages
     }
     }
  
+**Task 5.** Setup the GitHub webhook to trigger the jobs 
+
+5.1 Configuring GitHub
+
+![web-hook-01](https://user-images.githubusercontent.com/86925275/137647172-63a0ff53-c994-40c7-913d-c336fe6a1dcf.png)
+
+
 
