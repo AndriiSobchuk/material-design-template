@@ -61,4 +61,42 @@ Also I add a network security group to limit the access to the servers from the 
  ![github-pl](https://user-images.githubusercontent.com/86925275/137644517-f671b543-8e47-4c19-9e15-6b132d6b2429.png)
 
 
+Manage Jenkins -> Security (Configure Global Security) -> Authorization (Role-based authorization strategy)
+![authorization](https://user-images.githubusercontent.com/86925275/137644824-7b0b9019-d6ae-454b-8a7d-34c3ded0f5b6.png)
+
+1.7 Add new user (jenkins-NAME)
+Manage Jenkins -> Security (Manage users) -> Create user
+![users](https://user-images.githubusercontent.com/86925275/137644840-ee05a96c-26b7-49e6-ac3c-0d1c6bfe7fa4.png)
+
+
+**Task 2.** Create Agent VM
+2.1 Setup new VM (made also at GCP) and install openjdk-8-jre, Git 
+                
+       #installing Java 8 from PPA repository
+        sudo add-apt-repository ppa:webupd8team/java
+        sudo apt update
+
+        #install Java 1.8 and Git
+        sudo apt-get install openjdk-8-jre git -y
+        
+2.2 Prepare SSH keys
+
+        #Create a jenkins user
+        sudo adduser jenkins --shell /bin/bash
+        #login as jenkins user
+        su jenkins
+        #Create a jenkins_slave directory under /home/jenkins
+        mkdir /home/jenkins/jenkins_slave
+
+
+        #Create a .ssh directory and cd into the directory.
+        mkdir ~/.ssh && cd ~/.ssh
+
+        #generate keys
+        ssh-keygen
+
+        #add public key to authorized_keys file 
+        cat id_rsa.pub > ~/.ssh/authorized_keys
+
+
 
