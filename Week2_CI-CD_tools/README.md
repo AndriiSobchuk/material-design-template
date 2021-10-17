@@ -138,6 +138,10 @@ Name NodeJS and add required npm packages
 
 ![multi-04](https://user-images.githubusercontent.com/86925275/137646521-85693db4-611e-4972-87db-459191453495.png)
 
+![multi-05](https://user-images.githubusercontent.com/86925275/137647060-aba6ba22-9247-4306-a3c8-aee466329e0b.png)
+
+
+
 **Jenkinsfile ( with declarative pipeline ):**
 
     pipeline {
