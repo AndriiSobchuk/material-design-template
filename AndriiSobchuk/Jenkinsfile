@@ -1,0 +1,41 @@
+pipeline {
+    agent {
+        label ('nodejs')
+    }
+    tools {
+        nodejs ("nodejs-agent-1")
+    }
+    
+    stages {
+        stage ('Compress-js-css-files') {
+            parallel {
+                stage ('uglify-js') {
+                    steps {
+                        nodejs(nodeJSInstallationName: 'nodejs-agent-1') {
+                            sh 'uglifyjs -o www/min/*.js www/js/*.js'
+                            
+                        }
+                    }
+                }
+                stage ('clean-css') {
+                    steps {
+                        nodejs(nodeJSInstallationName: 'nodejs-agent-1') {
+                            sh 'cleancss -o www/min/*.css www/css/*.css'
+                            
+                        }
+                    }
+                }
+                
+            }
+        }
+        stage('Package') {
+            steps {
+                sh 'mkdir artifacts'
+                
+                sh "tar --exclude ='./www/js/*' --exclude='./www/css'  --exclude='.git' --exclude='artifacts' -czvf  artifacts/compressed.${BUILD_ID}.tar.gz ."
+             
+                archiveArtifacts artifacts: "artifacts/compressed.${env.BUILD_ID}.tar.gz", fingerprint: true
+            }
+        }
+    }
+}
