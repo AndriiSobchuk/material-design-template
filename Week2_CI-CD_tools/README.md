@@ -54,8 +54,11 @@ Also I add a network security group to limit the access to the servers from the 
  ![login-screen](https://user-images.githubusercontent.com/86925275/137643898-2ba2f34c-c156-4e69-b851-dea62821f9c9.png)
 
  
+ 1.6 Install additional plugins: GitHub and Role-based authorization strategy
  
+ ![RBAS-pl](https://user-images.githubusercontent.com/86925275/137644502-2c65d5b0-1177-4264-b57e-cd24ed37c3ff.png)
+ 
+ ![github-pl](https://user-images.githubusercontent.com/86925275/137644517-f671b543-8e47-4c19-9e15-6b132d6b2429.png)
 
- 
- 
-        
+
+
