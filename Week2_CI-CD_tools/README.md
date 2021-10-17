@@ -110,3 +110,18 @@ I add Agent node and provide info about: node name, labels, remote root director
 
 Agent node was added successfully. 
 
+**Task 3.** Configure  tools - NodeJS
+
+3.1 Add NodeJS plugin and global npm packages to install (uglify-js, clean-css-cli)
+
+Manage Jenkins -> Manage Plugins 
+
+Find and add in available plugins NodeJS plugin and install 
+
+![nodejs-pl](https://user-images.githubusercontent.com/86925275/137646113-9453da4d-a388-4d52-b4dc-6efdc2c8f2ac.png)
+
+Manage Jenkins -> Global Tool Configuration -> NodeJS installations 
+Name NodeJS and add required npm packages 
+
+![nodejs-config](https://user-images.githubusercontent.com/86925275/137646203-b5f38b00-aa7c-4d3f-be63-8d65a394739f.png)
+
