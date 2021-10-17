@@ -125,3 +125,61 @@ Name NodeJS and add required npm packages
 
 ![nodejs-config](https://user-images.githubusercontent.com/86925275/137646203-b5f38b00-aa7c-4d3f-be63-8d65a394739f.png)
 
+
+
+**Task 4.** Create "Multibranch Pipeline" pipeline job 
+
+
+![multi-01](https://user-images.githubusercontent.com/86925275/137646502-881312a2-9135-4b64-9b62-a8e0382e5d7c.png)
+
+![multi-02](https://user-images.githubusercontent.com/86925275/137646512-2ab90763-5f7f-4d76-b04f-a28c31fd6706.png)
+
+![multi-03](https://user-images.githubusercontent.com/86925275/137646519-7d2d0c9b-eb84-4552-829a-db16d07cad57.png)
+
+![multi-04](https://user-images.githubusercontent.com/86925275/137646521-85693db4-611e-4972-87db-459191453495.png)
+
+**Jenkinsfile ( with declarative pipeline ):**
+
+    pipeline {
+    agent {
+        label ('nodejs')
+    }
+    tools {
+        nodejs ("nodejs-agent-1")
+    }
+    
+    stages {
+        stage ('Compress-js-css-files') {
+            parallel {
+                stage ('uglify-js') {
+                    steps {
+                        nodejs(nodeJSInstallationName: 'nodejs-agent-1') {
+                            sh 'uglifyjs -o www/min/*.js www/js/*.js'
+                            
+                        }
+                    }
+                }
+                stage ('clean-css') {
+                    steps {
+                        nodejs(nodeJSInstallationName: 'nodejs-agent-1') {
+                            sh 'cleancss -o www/min/*.css www/css/*.css'
+                            
+                        }
+                    }
+                }
+                
+            }
+        }
+        stage('Package') {
+            steps {
+                sh 'mkdir artifacts'
+                
+                sh "tar --exclude ='./www/js/*' --exclude='./www/css'  --exclude='.git' --exclude='artifacts' -czvf  artifacts/compressed.${BUILD_ID}.tar.gz ."
+                
+                archiveArtifacts artifacts: "artifacts/compressed.${env.BUILD_ID}.tar.gz", fingerprint: true
+            }
+        }
+    }
+    }
+ 
+
