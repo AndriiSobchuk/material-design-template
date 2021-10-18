@@ -212,6 +212,29 @@ Name NodeJS and add required npm packages
 
 **Task 2.**  SPIN UP VM WITH INSTALLED ARTIFACTORY
 
+        sudo apt update
+        sudo apt install wget
+
+        #importing the GPG key used for signing the debian packages
+        wget -qO - https://api.bintray.com/orgs/jfrog/keys/gpg/public.key | sudo apt-key add -
+        echo "deb https://jfrog.bintray.com/artifactory-debs bionic main" | sudo tee /etc/apt/sources.list.d/jfrog.list
+
+        #install JFrog Artifactory
+
+        sudo apt update
+        sudo apt install jfrog-artifactory-oss
+
+        # start and enable service 
+        sudo systemctl start artifactory.service
+        sudo systemctl enable artifactory.service
+
+        #verify the status of Artifactory
+        sudo systemctl start artifactory.service 
+        
+<img width="1158" alt="Screenshot 2021-10-18 at 12 10 22" src="https://user-images.githubusercontent.com/86925275/137702899-ec218ad6-6522-428c-952e-4dda335c83d0.png">
+
+<img width="1325" alt="Screenshot 2021-10-18 at 12 11 17" src="https://user-images.githubusercontent.com/86925275/137703031-fcd3f237-68de-4986-aead-c87c27558866.png">
+
 **Task 3.**  ADD NEW STAGE FOR PUBLISHING ARTIFACTS INTO ARTIFACTORY
 
 
