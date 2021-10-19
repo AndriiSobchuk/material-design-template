@@ -237,4 +237,22 @@ Name NodeJS and add required npm packages
 
 **Task 3.**  ADD NEW STAGE FOR PUBLISHING ARTIFACTS INTO ARTIFACTORY
 
+3.1 I add Artifactory plugin in Jenkins
+
+<img width="1550" alt="Screenshot 2021-10-19 at 12 05 15" src="https://user-images.githubusercontent.com/86925275/137884496-7b183f44-7e5d-417b-8b4c-2e111d0cbf0b.png">
+
+Add configuration: Manage Jenkins -> System Configuration (Configure System) -> Add JFrog Platform Instances
+
+<img width="1550" alt="Screenshot 2021-10-19 at 12 07 31" src="https://user-images.githubusercontent.com/86925275/137884991-0849c683-ac38-4a59-a2cb-1390675d4e55.png">
+
+Add a new stage to Jenkins file to publish artifacts into artifactory (watch Jenkinsfile)
+
+Start a new job at Jenkins
+
+<img width="1550" alt="Screenshot 2021-10-19 at 12 08 14" src="https://user-images.githubusercontent.com/86925275/137885550-543969b2-9b18-4766-ba69-185e28af2677.png">
+
+3.2 Check the result in JFrog -> Artifactory -> Builds
+
+<img width="1685" alt="Screenshot 2021-10-19 at 12 32 13" src="https://user-images.githubusercontent.com/86925275/137885808-dacc4c55-52f0-4405-a959-4489bcaed6cb.png">
+
 
