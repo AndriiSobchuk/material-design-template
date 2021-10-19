@@ -37,5 +37,25 @@ pipeline {
                 archiveArtifacts artifacts: "artifacts/compressed.${env.BUILD_ID}.tar.gz", fingerprint: true
             }
         }
+        stage ('Publish Build Info') {
+            steps {
+                rtPublishBuildInfo (
+                    serverId: "Jfrog",
+                    uploadSpec: """{
+                    "files": [
+                    {
+                           "pattern": "artifacts-jfrog/compressed.${BUILD_ID}.tar.gz",
+                           "target": "default-generic-local/compressed.${BUILD_ID}.tar.gz"
+                     }
+                       ]
+                     }"""
+                )
+                //def buildInfo: Artifactory.newBuildInfo() -> server.upload spec: uploadSpec, buildInfo: buildInfo
+
+                // buildInfo.retention maxBuilds: 10, maxDays: 7, deleteBuildArtifacts: true
+                // Publish build info.
+                //server.publishBuildInfo buildInfo
+            }
+        }
     }
 }
