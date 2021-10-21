@@ -210,6 +210,8 @@ Name NodeJS and add required npm packages
 
 **Task 1.**  USE SCRIPTED PIPELINE INSTEAD OF DECLARATIVE
 
+Scripted pipeline is located in: AndriiSobchuk/Jenkinsfile_scripted. Also I create a folder "artifact-scripted" where I will locate resulted artifacts.
+
 **Task 2.**  SPIN UP VM WITH INSTALLED ARTIFACTORY
 
         sudo apt update
