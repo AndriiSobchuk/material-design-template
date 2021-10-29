@@ -1,0 +1,60 @@
+---
+ - hosts: client
+   become: yes
+   tasks:
+       - sysctl:
+               name: vm.min_free_kbytes
+               value: '45050'
+               state: present
+       - sysctl:
+               name: fs.file-max
+               value: '2097152'
+               sysctl_set: yes
+       - sysctl:
+               name: net.core.somaxconn
+               value: '65000'
+       - sysctl:
+               name: vm.swappiness
+               value: '0'
+       - sysctl:
+               name: vm.nr_hugepages
+               value: '0'
+
+   tasks:
+           - name: update apt package manager
+             become: yes
+             apt:
+                     update_cache: yes
+           - name: install Java
+             become: yes
+             apt:
+                     name: openjdk-11-jdk
+                     state: present
+   tasks:
+            - name: check jenkins repo
+              apt_key: url=https://pkg.jenkins.io/debian-stable/jenkins.io.key state=present
+              become: yes
+
+            - name: verify repo configured
+              apt_repository: repo='deb https://pkg.jenkins.io/debian-stable binary/' state=present
+              become: yes
+
+            - name: ensure Jenkins is installed
+              apt:
+                      name: jenkins
+                      update_cache: yes
+              become: yes
+
+            - name: ensure jenkins running
+              service:
+                      name: jenkins
+                      state: started
+   tasks:
+           - name: unlock code Jenkins
+             become: yes
+             shell: "cat /var/lib/jenkins/secrets/initialAdminPassword"
+             register: jenkins_unlock
+
+           - debug: msg="Jenkins unlock code (install admin password) is {{ jenkins_unlock.stdout }}"
+
+
